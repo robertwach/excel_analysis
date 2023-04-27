@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel file checker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200">
+
+   <main class="p-6  max-w-6xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-3">Excel file analysis</h1>
+    
+    <section class="bg-white p-6 flex flex-row items-center justify-center  ">
+        <form action="/" method="post" enctype="multipart/form-data" class="flex flex-col gap-6 p-3">
+            <!-- <input type="file" name="file" id="file"> -->
+            <div class="flex items-center justify-center bg-grey-lighter">
+                <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue-500 rounded-lg shadow-lg tracking-wide uppercase border border-blue-400 cursor-pointer hover:bg-blue-400 hover:text-white">
+                    <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                    </svg>
+                    <span class="mt-2 text-base leading-normal">Select a file</span>
+                    <input 
+                        type='file' 
+                        name="file" 
+                        class="hidden"
+                        id="file"
+                        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                        />
+                </label>
+            </div>
+            <span id="fileName"></span>
+
+            <input class="bg-pink-500 rounded-xl text-white px-4 py-3" type="submit" value="Submit">
+        </form>
+    </section>
+   </main>
+
+   <script>
+        let fileInput = document.getElementById('file');
+        let span = document.getElementById('fileName');
+        // Fires on file upload
+        fileInput.addEventListener('change', function(event){
+            
+            // Get file name
+            let fileName = fileInput.files[0].name;
+            
+            // Update file name in span
+            span.innerText = fileName;
+        });
+   </script>
+    
+</body>
+</html>

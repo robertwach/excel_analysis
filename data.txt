@@ -1,0 +1,50 @@
+<tr> <td> <pre> 36 </pre> </td> <td> <pre> In which constituency do you currently live?
+
+[OPERATOR: DO NOT READ THE ANSWER OPTIONS. SINGLE RESPONSE]
+
+1)DAGORETTI NORTH
+2)DAGORETTI SOUTH
+3)EMBAKASI CENTRAL
+4)EMBAKASI EAST
+5)EMBAKASI NORTH
+6)EMBAKASI SOUTH
+7)EMBAKASI WEST
+8)KAMUKUNJI
+9)KASARANI
+10)KIBRA
+11)LANGATA
+12)MAKADARA
+13)MATHARE
+14)ROYSAMBU
+15)RUARAKA
+16)STAREHE
+17)WESTLANDS
+18)DON'T KNOW
+19)REFUSED </pre> </td> <td> <pre> hjbjmfkmlfdlklfalkakfad;
+1)DAGORTE
+ </pre> </td> </tr><tr> <td> <pre> 56 </pre> </td> <td> <pre> Please indicate your household’s (including yours) approximate monthly income before taxes (including pension/study allowance etc.). in Kenyan Shillings.
+
+[OPERATOR: SINGLE RESPONSE]
+
+1)Below 12500 KSHS
+2)12500 – 62000 KSHS
+3)62001 – 125000 KSHS
+4)125001 – 190000 KSHS
+5)190001 – 250000 KSHS
+6)250001 – 310000 KSHS
+7)More than 310000
+8)DON'T KNOW
+9)REFUSED </pre> </td> <td> <pre> Tafadhali onyesha makadirio ya mapato ya familia yako (pamoja na yako) ya kila mwezi kabla ya kutozwa kodi/ ushuru (ikiwemo pensheni/ada ya masomo n.k.). kwa Shilingi za Kenya.
+
+[MWELEKEZI: JIBU MOJA]
+
+1)Chini ya 12500 KSHS
+2)12500 – 62000 KSHS
+3)62001 – 125000 KSHS
+4)125001 – 190000 KSHS
+5)190001 – 250000 KSHS
+6)250001 – 310000 KSHS
+7)Zaidi ya 310000
+7)Zaidi ya 5841420
+8)SIJUI
+9)ALIKATAA </pre> </td> </tr>

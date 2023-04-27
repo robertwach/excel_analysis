@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System error</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <main class="p-6 max-w-6xl mx-auto justify-start">
+       <section class="flex flex-col gap-6">
+        <h1 class="font-bold text-4xl">Something went wrong</h1>
+
+        <p class="mb-4 rounded-lg bg-red-100 px-6 py-5 text-base text-danger-700">{{ .error }}</p>
+
+        <a href="/" class="bg-blue-500 w-max min-w-[120px] text-center block hover:bg-blue-700 w-min text-white font-bold py-2 px-4 rounded">Go home</a>
+
+       </section>
+    </main>
+</body>
+</html>
