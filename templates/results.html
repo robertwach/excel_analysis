@@ -40,19 +40,22 @@
             <a href="/" class="bg-pink-500 w-max hover:bg-pink-700 flex text-white font-bold py-2 px-4 rounded">Check document</a>
         </div>
 
+    <section class="bg-pink-100 rounded-lg p-3 mt-4 flex flex-col gap-2 w-full mb-8">
+        <h2 class="font-bold text-blue-500 text-xl">Phrase match errors</h2>
+       <ul class="grid w-full grid-cols-1 lg:grid-cols-2 gap-4	">
+        {{ .phraseErrors }}
+       </ul> 
+    </section>
+
     <section class="bg-blue-100 rounded-lg p-3 flex flex-col gap-2 mb-8">
-       <ul>
+        <h2 class="font-bold text-pink-500 text-xl">Rows with mismatching items</h2>
+       <ul class="flex flex-col gap-2">
         {{ .msg }}
        </ul>
        
     </section>
     <section>
         <table class="table">
-            <tr>
-                <th>Row</th>
-                <th>Primary</th>
-                <th>Secondary</th>
-            </tr>
             {{  .rows }}
         </table>
     </section>
