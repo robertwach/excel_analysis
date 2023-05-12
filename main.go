@@ -166,7 +166,7 @@ func ReadExelFile(fileName string) ([][]string, error) {
 func DeepCheck(rows [][]string) (string, string, error) {
 	erroredRows := ""
 	str := ""
-	for i, row := range rows {
+	for _, row := range rows {
 		cell_num := ""
 
 		lineLens := []int{}
