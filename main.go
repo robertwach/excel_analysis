@@ -9,6 +9,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
 
 	"github.com/gin-gonic/gin"
 	"github.com/xuri/excelize/v2"
@@ -41,7 +42,6 @@ func main() {
 		log.Println(file.Filename)
 
 		dest := "./public/abc.xlsx"
-
 		err = c.SaveUploadedFile(file, dest)
 
 		if err != nil {
@@ -50,6 +50,7 @@ func main() {
 			})
 			return
 		}
+
 		docRows, err := ReadExelFile(dest)
 		if err != nil {
 			c.HTML(http.StatusTemporaryRedirect, "error.html", gin.H{
@@ -58,21 +59,44 @@ func main() {
 			return
 		}
 
-		rows, msg, err := DeepCheck(docRows)
+		wg := sync.WaitGroup{}
 
-		if err != nil {
-			c.HTML(http.StatusTemporaryRedirect, "error.html", gin.H{
-				"error": err.Error(),
-			})
-		}
-
-		_, err = PhraseCheck(docRows)
-
+		wg.Add(1)
+		var matchErrors error
 		phraseErrors := ""
+		var msg string
+		var rows string
+		go func() {
+			defer wg.Done()
 
-		if err != nil {
-			phraseErrors = err.Error()
+			r, m, err := DeepCheck(docRows)
+
+			rows = r
+			msg = m
+			matchErrors = err
+
+		}()
+
+		if matchErrors != nil {
+			if err != nil {
+				c.HTML(http.StatusTemporaryRedirect, "error.html", gin.H{
+					"error": matchErrors.Error(),
+				})
+			}
 		}
+
+		wg.Add(1)
+		func() {
+			defer wg.Done()
+			_, pe := PhraseCheck(docRows)
+
+			if pe != nil {
+				phraseErrors = pe.Error()
+			}
+
+		}()
+
+		wg.Wait()
 
 		c.HTML(
 			http.StatusOK,
