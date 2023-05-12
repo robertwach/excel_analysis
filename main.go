@@ -58,7 +58,7 @@ func main() {
 			return
 		}
 
-		rows, msg, err := DoDocCheck(docRows)
+		rows, msg, err := DeepCheck(docRows)
 
 		if err != nil {
 			c.HTML(http.StatusTemporaryRedirect, "error.html", gin.H{
@@ -100,7 +100,7 @@ func DoDocCheck(rows [][]string) (string, string, error) {
 	for i, row := range rows {
 		lineLens := []int{}
 		// cell_num := ""
-		if i > 3 {
+		if i > 0 {
 
 			ln := len(row)
 
@@ -166,7 +166,7 @@ func ReadExelFile(fileName string) ([][]string, error) {
 func DeepCheck(rows [][]string) (string, string, error) {
 	erroredRows := ""
 	str := ""
-	for _, row := range rows {
+	for i, row := range rows {
 		cell_num := ""
 
 		lineLens := []int{}
@@ -190,6 +190,10 @@ func DeepCheck(rows [][]string) (string, string, error) {
 				}
 				lineLens = append(lineLens, len(v2))
 			}
+			// if i < 20 {
+			// 	fmt.Println(cell_num, lineLens)
+			// }
+
 		}
 
 		if len(lineLens) > 0 {
